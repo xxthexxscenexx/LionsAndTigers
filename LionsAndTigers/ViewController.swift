@@ -28,6 +28,24 @@ class ViewController: UIViewController {
         myTiger.breed = "Bengal"
         myTiger.image = UIImage(named: "BengalTiger.jpg")
         
+        var secondTiger = Tiger()
+        secondTiger.name = "Leo"
+        secondTiger.age = 4
+        secondTiger.breed = "Indochinese"
+        secondTiger.image = UIImage(named: "IndochineseTiger.jpg")
+        
+        var thirdTiger = Tiger()
+        thirdTiger.name = "Rider"
+        thirdTiger.age = 3
+        thirdTiger.breed = "Malayan"
+        thirdTiger.image = UIImage(named: "MalayanTiger.jpg")
+        
+        var fourTiger = Tiger()
+        fourTiger.name = "James"
+        fourTiger.age = 5
+        fourTiger.breed = "Siberian"
+        fourTiger.image = UIImage(named: "SiberianTiger.jpg")
+        
         // uses the values of the Tiger struct to change the UI 
         imageView.image = myTiger.image
         nameLabel.text = myTiger.name
