@@ -65,9 +65,16 @@ class ViewController: UIViewController {
     
     // next bar button on the toolbar has been pressed 
     @IBAction func nextButtonPressed(sender: UIBarButtonItem) {
+
+        var currentIndex = 0
+        var randIndex:Int
         
-        let randIndex = Int(arc4random_uniform(UInt32(tigerArray.count))) // generates a random number within the number of elements in array
-        let tiger = tigerArray[randIndex]                                 // gets the tiger at that index
+        do {
+            randIndex = Int(arc4random_uniform(UInt32(tigerArray.count))) // assigns randIndex a value and evaluates if it is equal to current
+        } while currentIndex == randIndex
+        
+        currentIndex = randIndex                 // updates value of current index 
+        let tiger = tigerArray[randIndex]        // gets the tiger at that index
         
         // uses the values of the Tiger struct to change the UI
         //imageView.image = tiger.image
@@ -75,6 +82,7 @@ class ViewController: UIViewController {
         //ageLabel.text = "\(tiger.age)"
         //breedLabel.text = tiger.breed
         
+        // uses a UI transition closure to transition images by dissolving
         UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations:
             {
                 self.imageView.image = tiger.image
